@@ -66,7 +66,7 @@
 
 /*** Navbar ***/
 .nav-bar {
-    /*position: relative;*/
+    position: relative;
     margin-top: 45px;
     padding: 0 3rem;
     transition: .5s;
@@ -74,7 +74,7 @@
 }
 
 .nav-bar.sticky-top {
-    /*position: sticky;*/
+    position: sticky;
     padding: 0;
     z-index: 9999;
 }
