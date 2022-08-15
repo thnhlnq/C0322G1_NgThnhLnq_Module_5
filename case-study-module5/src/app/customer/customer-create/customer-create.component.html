@@ -1,0 +1,105 @@
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+      <h1 class="pt-5">Create Customer</h1>
+    </div>
+    <table style="display: grid;" [formGroup]="customerForm" (ngSubmit)="submit()">
+      <tr style="width: 100%;">
+        <td>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text">Name</span>
+            <input style="width: 100%" type="text" class="form-control"
+                   placeholder="Enter Name" formControlName="name"><br>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text">Date Of Birth</span>
+            <input type="date" class="form-control"
+                   placeholder="Enter Date Of Birth" formControlName="dateOfBirth"><br>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text">Gender</span>
+            <label style="width: 100%">
+              <select class="form-select" formControlName="gender">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other Gender</option>
+              </select>
+            </label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text">Id Card</span>
+            <input type="text" class="form-control" placeholder="Enter Id Card" formControlName="idCard"><br>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text">Phone</span>
+            <input type="text" class="form-control" placeholder="Enter Phone" formControlName="phone"><br>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text">Email</span>
+            <input type="text" class="form-control" placeholder="Enter Email" formControlName="email"><br>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text">Address</span>
+            <input type="text" class="form-control" placeholder="Enter Address" formControlName="address"><br>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text">Customer Type</span>
+            <label style="width: 100%">
+              <select class="form-select" formControlName="customerType">
+                <option>Diamond</option>
+                <option>Platinum</option>
+                <option>Gold</option>
+                <option>Silver</option>
+                <option>Member</option>
+              </select>
+            </label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="vstack">
+            <button type="submit" class="btn btn-primary" value="Create">Create</button>
+            <a class="btn btn-danger" href="../customer/list">Cancel</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

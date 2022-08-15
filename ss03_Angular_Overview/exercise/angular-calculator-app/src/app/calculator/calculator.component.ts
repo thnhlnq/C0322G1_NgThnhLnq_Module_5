@@ -22,6 +22,9 @@ export class CalculatorComponent implements OnInit {
       case '*':
         return firstOperand * secondOperand;
       case '/':
+        if (secondOperand !== 0) {
+          return 'Can not Devide By Zero !';
+        }
         return firstOperand / secondOperand;
     }
   }
