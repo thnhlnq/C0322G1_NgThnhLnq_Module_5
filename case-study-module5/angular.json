@@ -25,26 +25,10 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/style.css",
-              "src/assets/scss/bootstrap.scss",
-              "src/assets/js/main.js",
-              "src/assets/lib/animate/animate.min.css",
-              "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
-              "src/assets/lib/owlcarousel/assets/owl.theme.default.min.css",
-              "src/assets/lib/owlcarousel/assets/owl.theme.green.min.css",
-              "src/assets/lib/owlcarousel/owl.carousel.js",
-              "src/assets/lib/wow/wow.js"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "src/assets/css/style.css",
-              "src/assets/scss/bootstrap.scss",
-              "src/assets/js/main.js",
-              "src/assets/lib/animate/animate.min.css",
-              "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
-              "src/assets/lib/owlcarousel/assets/owl.theme.default.min.css",
-              "src/assets/lib/owlcarousel/assets/owl.theme.green.min.css",
-              "src/assets/lib/owlcarousel/owl.carousel.js",
-              "src/assets/lib/wow/wow.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {

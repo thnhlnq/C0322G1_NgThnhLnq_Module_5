@@ -1,15 +1,15 @@
 <div class="container-xxl py-5">
-  <div class="container">
-    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-      <h1 class="pt-5">Create Customer</h1>
+  <div class="container" style="text-align: center">
+    <div class=" row text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+      <h1>Create Customer</h1>
     </div>
-    <table style="display: grid;" [formGroup]="customerForm" (ngSubmit)="submit()">
-      <tr style="width: 100%;">
+    <table style="display: inline-grid">
+      <tbody>
+      <tr>
         <td>
           <div class="input-group flex-nowrap">
             <span class="input-group-text">Name</span>
-            <input style="width: 100%" type="text" class="form-control"
-                   placeholder="Enter Name" formControlName="name"><br>
+            <input style="width: 100%" type="text" class="form-control" placeholder="Enter Name Customer"><br>
           </div>
         </td>
       </tr>
@@ -18,8 +18,7 @@
         <td>
           <div class="input-group flex-nowrap">
             <span class="input-group-text">Date Of Birth</span>
-            <input type="date" class="form-control"
-                   placeholder="Enter Date Of Birth" formControlName="dateOfBirth"><br>
+            <input type="date" class="form-control" placeholder="Enter Date Of Birth Customer"><br>
           </div>
         </td>
       </tr>
@@ -29,7 +28,7 @@
           <div class="input-group flex-nowrap">
             <span class="input-group-text">Gender</span>
             <label style="width: 100%">
-              <select class="form-select" formControlName="gender">
+              <select class="form-select">
                 <option>Male</option>
                 <option>Female</option>
                 <option>Other Gender</option>
@@ -43,7 +42,7 @@
         <td>
           <div class="input-group flex-nowrap">
             <span class="input-group-text">Id Card</span>
-            <input type="text" class="form-control" placeholder="Enter Id Card" formControlName="idCard"><br>
+            <input type="text" class="form-control" placeholder="Enter Id Card Customer"><br>
           </div>
         </td>
       </tr>
@@ -52,7 +51,7 @@
         <td>
           <div class="input-group flex-nowrap">
             <span class="input-group-text">Phone</span>
-            <input type="text" class="form-control" placeholder="Enter Phone" formControlName="phone"><br>
+            <input type="text" class="form-control" placeholder="Enter Phone Customer"><br>
           </div>
         </td>
       </tr>
@@ -61,7 +60,7 @@
         <td>
           <div class="input-group flex-nowrap">
             <span class="input-group-text">Email</span>
-            <input type="text" class="form-control" placeholder="Enter Email" formControlName="email"><br>
+            <input type="text" class="form-control" placeholder="Enter Email Customer"><br>
           </div>
         </td>
       </tr>
@@ -70,7 +69,7 @@
         <td>
           <div class="input-group flex-nowrap">
             <span class="input-group-text">Address</span>
-            <input type="text" class="form-control" placeholder="Enter Address" formControlName="address"><br>
+            <input type="text" class="form-control" placeholder="Enter Address Customer"><br>
           </div>
         </td>
       </tr>
@@ -80,9 +79,9 @@
           <div class="input-group flex-nowrap">
             <span class="input-group-text">Customer Type</span>
             <label style="width: 100%">
-              <select class="form-select" formControlName="customerType">
-                <option>Diamond</option>
+              <select class="form-select">
                 <option>Platinum</option>
+                <option>Diamond</option>
                 <option>Gold</option>
                 <option>Silver</option>
                 <option>Member</option>
@@ -95,11 +94,12 @@
       <tr>
         <td>
           <div class="vstack">
-            <button type="submit" class="btn btn-primary" value="Create">Create</button>
+            <button type="submit" class="btn btn-success" value="Create">Create</button>
             <a class="btn btn-danger" href="../customer/list">Cancel</a>
           </div>
         </td>
       </tr>
+      </tbody>
     </table>
   </div>
 </div>

@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
     --primary: #00B98E;
-    --secondary: #FF6922;
+    --secondary: #046056;
     --light: #EFFDF5;
     --dark: #0E2E50;
 }
@@ -121,11 +121,11 @@
 }
 
 /*** Header ***/
-@media (min-width: 992px) {
-    .header {
-        margin-top: -120px;
-    }
-}
+/*@media (min-width: 992px) {*/
+/*    .header {*/
+/*        margin-top: -120px;*/
+/*    }*/
+/*}*/
 
 .header-carousel .owl-nav {
     position: absolute;
