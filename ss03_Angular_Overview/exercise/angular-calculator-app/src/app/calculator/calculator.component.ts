@@ -9,23 +9,23 @@ import {Calculator} from '../calculator';
 export class CalculatorComponent implements OnInit {
   calculator: Calculator = {
     firstOperand: 5,
-    operator: '+',
-    secondOperand: 7
+    operator: '/',
+    secondOperand: 0
   };
 
-  calculate(firstOperand, secondOperand, operator) {
-    switch (operator) {
+  calculate() {
+    switch (this.calculator.operator) {
       case '+':
-        return (firstOperand * 1) + (secondOperand * 1);
+        return (this.calculator.firstOperand * 1) + (this.calculator.secondOperand * 1);
       case '-':
-        return firstOperand - secondOperand;
+        return this.calculator.firstOperand - this.calculator.secondOperand;
       case '*':
-        return firstOperand * secondOperand;
+        return this.calculator.firstOperand * this.calculator.secondOperand;
       case '/':
-        if (secondOperand !== 0) {
+        if (this.calculator.secondOperand == 0) {
           return 'Can not Devide By Zero !';
         }
-        return firstOperand / secondOperand;
+        return this.calculator.firstOperand / this.calculator.secondOperand;
     }
   }
 

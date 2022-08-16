@@ -65,3 +65,11 @@
     </div>
   </div>
 </form>
+
+<script>
+  function infoDelete(name) {
+    let str = name.split(",")
+    document.getElementById("idDelete").value = str[0];
+    document.getElementById("nameDelete").innerText = str[1];
+  }
+</script>

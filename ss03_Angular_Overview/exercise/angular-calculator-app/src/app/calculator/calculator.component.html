@@ -4,13 +4,13 @@
     <tr>
       <td class="w-50">First Operand:</td>
       <td><input class="form-control w-50" type="text" required
-                 [(ngModel)]="calculator.firstOperand" #elementFirst/></td>
+                 [(ngModel)]="calculator.firstOperand"/></td>
     </tr>
 
     <tr>
       <td class="w-50">Operator:</td>
       <td>
-        <select class="form-control w-50" [(ngModel)]="calculator.operator" #elementOperator>
+        <select class="form-select w-50" [(ngModel)]="calculator.operator">
           <option value="+">Addition (+)</option>
           <option value="-">Subtraction (-)</option>
           <option value="*">Multiplication (*)</option>
@@ -22,8 +22,10 @@
     <tr>
       <td class="w-50">Second Operand:</td>
       <td><input class="form-control w-50" type="text" required
-                 [(ngModel)]="calculator.secondOperand" #elementSecond/></td>
+                 [(ngModel)]="calculator.secondOperand"/></td>
     </tr>
   </table>
-  <h3>Result: {{calculate(elementFirst.value, elementSecond.value, elementOperator.value)}}</h3>
+  <h3>Result:
+    <h3 [innerText]="calculate()"></h3>
+  </h3>
 </div>
