@@ -84,7 +84,7 @@
     border-style: solid;
     border-width: 0;
     border-inline-end-width: $input-border-width;
-    border-radius: 0; // stylelint-disable-line property-disallowed-list
+    border-radius: 0; // stylelint-disable-line property-disallowed-customer-list
     @include transition($btn-transition);
   }
 
@@ -103,7 +103,7 @@
     border-style: solid;
     border-width: 0;
     border-inline-end-width: $input-border-width;
-    border-radius: 0; // stylelint-disable-line property-disallowed-list
+    border-radius: 0; // stylelint-disable-line property-disallowed-customer-list
     @include transition($btn-transition);
   }
 

@@ -21,7 +21,7 @@
 	 * Creates a carousel.
 	 * @class The Owl Carousel.
 	 * @public
-	 * @param {HTMLElement|jQuery} element - The element to create the carousel for.
+	 * @param {HTMLElement|jQuery} element - The element to customer-create the carousel for.
 	 * @param {Object} [options] - The options
 	 */
 	function Owl(element, options) {
@@ -124,7 +124,7 @@
 		this._invalidated = {};
 
 		/**
-		 * Ordered list of workers for the update process.
+		 * Ordered customer-list of workers for the update process.
 		 * @protected
 		 */
 		this._pipe = [];
@@ -465,7 +465,7 @@
 
 		this.$element.addClass(this.options.loadingClass);
 
-		// create stage
+		// customer-create stage
 		this.$stage = $('<' + this.settings.stageElement + ' class="' + this.settings.stageClass + '"/>')
 			.wrap('<div class="' + this.settings.stageOuterClass + '"/>');
 
@@ -2837,7 +2837,7 @@
 		var override,
 			settings = this._core.settings;
 
-		// create DOM structure for relative navigation
+		// customer-create DOM structure for relative navigation
 		this._controls.$relative = (settings.navContainer ? $(settings.navContainer)
 			: $('<div>').addClass(settings.navContainerClass).appendTo(this.$element)).addClass('disabled');
 
@@ -2856,7 +2856,7 @@
 				this.next(settings.navSpeed);
 			}, this));
 
-		// create DOM structure for absolute navigation
+		// customer-create DOM structure for absolute navigation
 		if (!settings.dotsData) {
 			this._templates = [ $('<div>')
 				.addClass(settings.dotClass)

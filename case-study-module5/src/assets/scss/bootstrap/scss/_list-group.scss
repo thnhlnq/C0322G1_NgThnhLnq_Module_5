@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
 
-  // No need to set list-style: none; since .list-group-item is block level
+  // No need to set customer-list-style: none; since .customer-list-group-item is block level
   padding-left: 0; // reset padding because ul and ol
   margin-bottom: 0;
   @include border-radius($list-group-border-radius);
@@ -24,10 +24,10 @@
 }
 
 
-// Interactive list items
+// Interactive customer-list items
 //
-// Use anchor or button elements instead of `li`s or `div`s to create interactive
-// list items. Includes an extra `.active` modifier class for selected items.
+// Use anchor or button elements instead of `li`s or `div`s to customer-create interactive
+// customer-list items. Includes an extra `.active` modifier class for selected items.
 
 .list-group-item-action {
   width: 100%; // For `<button>`s (anchors become 100% by default though)
@@ -50,9 +50,9 @@
 }
 
 
-// Individual list items
+// Individual customer-list items
 //
-// Use on `li`s or `div`s within the `.list-group` parent.
+// Use on `li`s or `div`s within the `.customer-list-group` parent.
 
 .list-group-item {
   position: relative;
@@ -99,7 +99,7 @@
 
 // Horizontal
 //
-// Change the layout of list group items from vertical (default) to horizontal.
+// Change the layout of customer-list group items from vertical (default) to horizontal.
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
@@ -138,9 +138,9 @@
 }
 
 
-// Flush list items
+// Flush customer-list items
 //
-// Remove borders and border-radius to keep list group items edge-to-edge. Most
+// Remove borders and border-radius to keep customer-list group items edge-to-edge. Most
 // useful within other components (e.g., cards).
 
 .list-group-flush {
@@ -156,7 +156,7 @@
 }
 
 
-// scss-docs-start list-group-modifiers
+// scss-docs-start customer-list-group-modifiers
 // List group contextual variants
 //
 // Add modifier classes to change text and background color on individual items.
@@ -171,4 +171,4 @@
 
   @include list-group-item-variant($state, $list-group-background, $list-group-color);
 }
-// scss-docs-end list-group-modifiers
+// scss-docs-end customer-list-group-modifiers

@@ -3,12 +3,11 @@ import {Customer} from '../../model/customer';
 import {CustomerService} from '../../service/customer.service';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  selector: 'app-customer-list',
+  templateUrl: './customer-list.component.html',
+  styleUrls: ['./customer-list.component.css']
 })
-
-export class ListComponent implements OnInit {
+export class CustomerListComponent implements OnInit {
 
   customers: Customer[] = [];
 

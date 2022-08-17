@@ -1,18 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  selector: 'app-customer-create',
+  templateUrl: './customer-create.component.html',
+  styleUrls: ['./customer-create.component.css']
 })
-export class CreateComponent implements OnInit {
+export class CustomerCreateComponent implements OnInit {
 
   customerForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
-    dayOfBirth: new FormControl(),
+    dateOfBirth: new FormControl(),
     gender: new FormControl(),
     idCard: new FormControl(),
     phone: new FormControl(),
@@ -21,7 +22,7 @@ export class CreateComponent implements OnInit {
     customerType: new FormControl()
   });
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService, private router: Router) {
   }
 
   ngOnInit() {
@@ -31,5 +32,6 @@ export class CreateComponent implements OnInit {
     const customer = this.customerForm.value;
     this.customerService.saveCustomer(customer);
     this.customerForm.reset();
+    this.router.navigate(['customer/list']);
   }
 }

@@ -1,0 +1,164 @@
+<!-- Contact Start -->
+<div class="container-xxl py-5">
+  <div class="container" style="text-align: center">
+    <div class=" row text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+      <h1>Create Facility</h1>
+    </div>
+    <form [formGroup]="facilitiesForm" (ngSubmit)="submit()">
+      <table style="display: inline-grid">
+        <tbody>
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Facility Type</span>
+              <label style="width: 100%">
+                <select class="form-select" formControlName="facilityType">
+                  <option>Villa</option>
+                  <option>House</option>
+                  <option>Room</option>
+                </select>
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Name</span>
+              <input style="width: 100%" type="text" class="form-control"
+                     placeholder="Enter Name" formControlName="name"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Area</span>
+              <input type="text" class="form-control"
+                     placeholder="Enter Area" formControlName="area"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Cost</span>
+              <input type="text" class="form-control"
+                     placeholder="Enter Cost" formControlName="cost"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Max People</span>
+              <input type="text" class="form-control" placeholder="Enter Max People" formControlName="maxPeople"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Rent Type</span>
+              <label style="width: 100%">
+                <select class="form-select" formControlName="rentType">
+                  <option>Year</option>
+                  <option>Month</option>
+                  <option>Day</option>
+                  <option>Hour</option>
+                </select>
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Standard Room</span>
+              <input type="text" class="form-control" placeholder="Enter Standard Room"
+                     formControlName="standardRoom"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Description Other Convenience</span>
+              <input type="text" class="form-control" placeholder="Enter Description Other Convenience"
+                     formControlName="descriptionOtherConvenience"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Pool Area</span>
+              <input type="text" class="form-control" placeholder="Enter Pool Area" formControlName="poolArea"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Number of Floor</span>
+              <input type="text" class="form-control" placeholder="Enter Number of Floor"
+                     formControlName="numberOfFloor"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Facility Free</span>
+              <input type="text" class="form-control" placeholder="Enter Facility Free"
+                     formControlName="facilityFree"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="form-label"></span>
+              <input class="form-control" type="file" formControlName="image"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding: 20px">
+            <div class="vstack" style="display: inline">
+              <button style="border: none; background: none" class="m-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-plus-circle text-success" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+              </button>
+              <a class="m-5" routerLink="/facility/list">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-x text-danger" viewBox="0 0 16 16">
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+<!-- Contact End -->
