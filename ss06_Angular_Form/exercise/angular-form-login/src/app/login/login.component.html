@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <form class="login" [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div class="login__field">
+          <input type="text" class="login__input bg-light" placeholder="Email" name="email" formControlName="email">
+          <p *ngIf="loginForm.controls.email.hasError('required') && (loginForm.controls.email.touched)">Email Can't Be Blank</p>
+          <p *ngIf="loginForm.controls.email.hasError('email') && (loginForm.controls.email.touched)">Email Incorrect Format</p>
+        </div>
+        <div class="login__field">
+          <input type="password" class="login__input bg-light" placeholder="Password" name="password" formControlName="password">
+          <p *ngIf="loginForm.controls.password.hasError('required') && (loginForm.controls.password.touched)">Password Can't Be Blank</p>
+          <p *ngIf="loginForm.controls.password.hasError('minlength') && (loginForm.controls.password.touched)">Password Must Be > 6 Characters</p>
+        </div>
+        <button type="submit" class="button login__submit" [disabled]="!loginForm.valid">
+          <span class="button__text">log in</span>
+        </button>
+      </form>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
+  </div>
+</div>

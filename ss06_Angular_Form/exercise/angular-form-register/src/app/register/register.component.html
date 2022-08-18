@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <form class="login" [formGroup]="registerForm" (ngSubmit)="submit()">
+        <div class="login__field">
+          <input type="text" class="login__input" placeholder="Email" name="email" formControlName="email">
+          <p *ngIf="registerForm.controls.email.hasError('email') && (registerForm.controls.email.touched)">Email Must Be Correct Format</p>
+          <p *ngIf="registerForm.controls.email.hasError('required') && (registerForm.controls.email.touched)">Email Can't Be Blank</p>
+        </div>
+
+        <div class="login__field">
+          <input type="password" class="login__input" placeholder="Password" formControlName="password" name="password">
+          <p *ngIf="registerForm.controls.password.hasError('required') && (registerForm.controls.password.touched)">Password Can't Be Blank</p>
+          <p *ngIf="registerForm.controls.password.hasError('minlength') && (registerForm.controls.password.touched)">Password Must > 6 Characters</p>
+        </div>
+
+        <div class="login__field">
+          <input type="password" class="login__input" placeholder="Confirm Password" formControlName="confirmPassword" name="confirmPassword">
+          <p *ngIf="registerForm.controls.password.hasError('required') && (registerForm.controls.password.touched)">Confirm Password Can't Be Blank</p>
+          <p *ngIf="registerForm.controls.password.hasError('minlength') && (registerForm.controls.password.touched)">Confirm Password Must > 6 Characters</p>
+          <p *ngIf="registerForm.hasError('check') && registerForm.controls.confirmPassword.touched">Confirm Password Must Be The Same Password</p>
+        </div>
+
+        <div class="login__field">
+          <select style="width: 200px" class="form-control login__input " formControlName="country" name="country">
+            <option>Việt Nam</option>
+            <option>Lào</option>
+            <option>Campuchia</option>
+          </select>
+          <p *ngIf="registerForm.controls.country.hasError('required') && (registerForm.controls.country.touched)">Country Can't Be Blank</p>
+        </div>
+
+        <div class="login__field">
+          <input type="text" class="login__input" placeholder="Age" name="age" formControlName="age">
+          <p *ngIf="registerForm.controls.age.hasError('required') && (registerForm.controls.age.touched)">Age Can't Be Blank</p>
+          <p *ngIf="registerForm.controls.age.hasError('min') && (registerForm.controls.age.touched)">Age Must > 18</p>
+        </div>
+
+        <div class="login__field" style="display: flex">
+          <input style="color: white" type="radio" class="login__input " placeholder="Gender" name="gender" formControlName="gender" value="Male">Male
+          <input type="radio" class="login__input " placeholder="Gender" name="gender" formControlName="gender" value="Female">Female
+          <p *ngIf="registerForm.controls.gender.hasError('required') && (registerForm.controls.gender.touched)">Gender Can't Be Blank</p>
+        </div>
+
+        <div class="login__field">
+          <input type="text" class="login__input" placeholder="Phone" name="phone" formControlName="phone">
+          <p *ngIf="registerForm.controls.phone.hasError('required') && (registerForm.controls.phone.touched)">Phone Can't Be Blank</p>
+          <p *ngIf="registerForm.controls.phone.hasError('pattern') && (registerForm.controls.phone.touched)">Phone Format (+84)-XXXXXXXXX</p>
+        </div>
+
+        <button type="submit" class="button login__submit" [disabled]="!registerForm.valid">
+          <span class="button__text">log in</span>
+        </button>
+      </form>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
+  </div>
+</div>
