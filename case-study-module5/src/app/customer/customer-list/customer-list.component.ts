@@ -11,6 +11,10 @@ export class CustomerListComponent implements OnInit {
 
   customers: Customer[] = [];
 
+  id: number;
+
+  name: string;
+
   constructor(private customerService: CustomerService) {
   }
 
@@ -19,6 +23,16 @@ export class CustomerListComponent implements OnInit {
   }
 
   getAll() {
+    this.customers = this.customerService.getAll();
+  }
+
+  openDelete(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  delete(id: number) {
+    this.customerService.deleteCustomer(id);
     this.customers = this.customerService.getAll();
   }
 }

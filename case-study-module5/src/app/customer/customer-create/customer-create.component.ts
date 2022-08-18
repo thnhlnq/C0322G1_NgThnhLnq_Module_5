@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
 import {Router} from '@angular/router';
+import {checkDateOfBirth} from '../../checkDateOfBirth';
 
 @Component({
   selector: 'app-customer-create',
@@ -10,20 +11,20 @@ import {Router} from '@angular/router';
 })
 export class CustomerCreateComponent implements OnInit {
 
-  customerForm: FormGroup = new FormGroup({
-    id: new FormControl(),
-    name: new FormControl(),
-    dateOfBirth: new FormControl(),
-    gender: new FormControl(),
-    idCard: new FormControl(),
-    phone: new FormControl(),
-    email: new FormControl(),
-    address: new FormControl(),
-    customerType: new FormControl()
-  });
-
   constructor(private customerService: CustomerService, private router: Router) {
   }
+
+  customerForm: FormGroup = new FormGroup({
+    id: new FormControl(),
+    name: new FormControl('', [Validators.required, Validators.pattern('^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$')]),
+    dateOfBirth: new FormControl('', [Validators.required, checkDateOfBirth]),
+    gender: new FormControl('', [Validators.required]),
+    idCard: new FormControl('', [Validators.required, Validators.pattern('^\\d{9}|\\d{12}$')]),
+    phone: new FormControl('', [Validators.required, Validators.pattern('^[0-9\\-\\+]{10}$')]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    address: new FormControl('', [Validators.required]),
+    customerType: new FormControl('', [Validators.required])
+  });
 
   ngOnInit() {
   }
@@ -33,5 +34,6 @@ export class CustomerCreateComponent implements OnInit {
     this.customerService.saveCustomer(customer);
     this.customerForm.reset();
     this.router.navigate(['customer/list']);
+    alert('Added Customer Success..');
   }
 }

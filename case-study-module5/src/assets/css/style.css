@@ -66,7 +66,7 @@
 
 /*** Navbar ***/
 .nav-bar {
-  position: relative;
+  /*position: relative;*/
   margin-top: 45px;
   padding: 0 3rem;
   transition: .5s;
@@ -74,7 +74,7 @@
 }
 
 .nav-bar.sticky-top {
-  position: sticky;
+  /*position: sticky;*/
   padding: 0;
   z-index: 9999;
 }
@@ -93,9 +93,9 @@
   transition: .5s;
 }
 
-.navbar .dropdown-toggle[aria-expanded=true]::after {
-  transform: rotate(-180deg);
-}
+/*.navbar .dropdown-toggle[aria-expanded=true]::after {*/
+/*  transform: rotate(-180deg);*/
+/*}*/
 
 .navbar-light .navbar-nav .nav-link {
   margin-right: 30px;
@@ -120,12 +120,12 @@
   font-weight: 500;
 }
 
-/*** Header ***/
-/*@media (min-width: 992px) {*/
-/*    .header {*/
-/*        margin-top: -120px;*/
-/*    }*/
-/*}*/
+** Header **
+@media (min-width: 992px) {
+    .header {
+        margin-top: -120px;
+    }
+}
 
 .header-carousel .owl-nav {
   position: absolute;

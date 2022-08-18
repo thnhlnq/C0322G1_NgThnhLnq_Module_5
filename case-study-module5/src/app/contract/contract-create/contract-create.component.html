@@ -31,6 +31,7 @@
             </div>
           </td>
         </tr>
+
         <tr>
           <td>
             <div class="input-group flex-nowrap">
@@ -55,6 +56,12 @@
               <span class="input-group-text">Deposit</span>
               <input type="text" class="form-control" formControlName="deposit">
             </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p *ngIf="contractForm.controls.deposit.hasError('pattern') && contractForm.controls.deposit.touched">Deposit Must > 0</p>
           </td>
         </tr>
 

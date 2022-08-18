@@ -4,116 +4,170 @@
       <h1>Create Customer</h1>
     </div>
     <form [formGroup]="customerForm" (ngSubmit)="submit()">
-    <table style="display: inline-grid" >
-      <tbody>
-      <tr>
-        <td>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text">Name</span>
-            <input type="text" class="form-control" placeholder="Enter Name Customer" formControlName="name"><br>
-          </div>
-        </td>
-      </tr>
+      <table style="display: inline-grid">
+        <tbody>
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Name <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Name Customer" formControlName="name"><br>
+            </div>
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text">Date Of Birth</span>
-            <input type="date" class="form-control" placeholder="Enter Date Of Birth Customer"
-                   formControlName="dateOfBirth"><br>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <p *ngIf="customerForm.controls.name.hasError('required') && customerForm.controls.name.touched">Name Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.name.hasError('pattern') && customerForm.controls.name.touched">Name Incorrect Format</p>
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text">Gender</span>
-            <label style="width: 100%">
-              <select class="form-select" formControlName="gender">
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other Gender</option>
-              </select>
-            </label>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Date Of Birth <i>&nbsp;*</i></span>
+              <input type="date" class="form-control" placeholder="Enter Date Of Birth Customer" formControlName="dateOfBirth"><br>
+            </div>
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text">Id Card</span>
-            <input type="text" class="form-control" placeholder="Enter Id Card Customer" formControlName="idCard"><br>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <p *ngIf="customerForm.controls.dateOfBirth.hasError('required') && customerForm.controls.dateOfBirth.touched">Date Of Birth Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.dateOfBirth.hasError('checkAge') && customerForm.controls.dateOfBirth.touched">Date Of Birth Incorrect Format</p>
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text">Phone</span>
-            <input type="text" class="form-control" placeholder="Enter Phone Customer" formControlName="phone"><br>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Gender <i>&nbsp;*</i></span>
+              <label style="width: 100%">
+                <select class="form-select" formControlName="gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other Gender</option>
+                </select>
+              </label>
+            </div>
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text">Email</span>
-            <input type="text" class="form-control" placeholder="Enter Email Customer" formControlName="email"><br>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <p *ngIf="customerForm.controls.gender.hasError('required') && customerForm.controls.gender.touched">Gender Can't Be Blank</p>
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text">Address</span>
-            <input type="text" class="form-control" placeholder="Enter Address" formControlName="address"><br>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Id Card <i>&nbsp;*</i></span>
+              <input type="number" class="form-control" placeholder="Enter Id Card Customer" formControlName="idCard"><br>
+            </div>
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text">Customer Type</span>
-            <label style="width: 100%;">
-              <select class="form-select" formControlName="customerType.name">
-                <option>Diamond</option>
-                <option>Platinum</option>
-                <option>Gold</option>
-                <option>Silver</option>
-                <option>Member</option>
-              </select>
-            </label>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <p *ngIf="customerForm.controls.idCard.hasError('required') && customerForm.controls.idCard.touched">Id Card Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.idCard.hasError('pattern') && customerForm.controls.idCard.touched">Id Card Incorrect Format</p>
+          </td>
+        </tr>
 
-      <tr>
-        <td style="padding: 20px">
-          <div class="vstack" style="display: inline">
-            <button style="border: none; background: none" class="m-5">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                   class="bi bi-plus-circle text-success" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                <path
-                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-              </svg>
-            </button>
-            <a class="m-5" routerLink="/customer/list">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x text-danger" viewBox="0 0 16 16">
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-            </a>
-          </div>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Phone <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Phone Customer" formControlName="phone"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p *ngIf="customerForm.controls.phone.hasError('required') && customerForm.controls.phone.touched">Phone Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.phone.hasError('pattern') && customerForm.controls.phone.touched">Phone Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Email <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Email Customer" formControlName="email"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p *ngIf="customerForm.controls.email.hasError('required') && customerForm.controls.email.touched">Email Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.email.hasError('email') && customerForm.controls.email.touched">Email Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Address <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Address Customer" formControlName="address"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p *ngIf="customerForm.controls.address.hasError('required') && customerForm.controls.address.touched">Address Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Customer Type <i>&nbsp;*</i></span>
+              <label style="width: 100%;">
+                <select class="form-select" formControlName="customerType">
+                  <option>Diamond</option>
+                  <option>Platinum</option>
+                  <option>Gold</option>
+                  <option>Silver</option>
+                  <option>Member</option>
+                </select>
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p *ngIf="customerForm.controls.customerType.hasError('required') && customerForm.controls.customerType.touched">Customer Type Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding: 20px">
+            <div class="vstack" style="display: inline">
+              <button style="border: none; background: none" class="m-5" [disabled]="!customerForm.valid">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-plus-circle text-success" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+              </button>
+              <a class="m-5" routerLink="/customer/list">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-x text-danger" viewBox="0 0 16 16">
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </form>
   </div>
 </div>

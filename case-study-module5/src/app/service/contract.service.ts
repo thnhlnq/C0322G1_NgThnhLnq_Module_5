@@ -17,7 +17,7 @@ export class ContractService {
       name: 'Phòng Suite Hướng Biển'
     },
     startDate: '10/10/2019',
-    endDate: '15/10/2019',
+    endDate: '11/18/2019',
     deposit: 1500
   }, {
     id: 2,
@@ -30,7 +30,7 @@ export class ContractService {
       name: 'Biệt Thự Hướng Biển Có Hồ Bơi'
     },
     startDate: '10/11/2021',
-    endDate: '17/11/2021',
+    endDate: '11/11/2021',
     deposit: 2000
   }];
 

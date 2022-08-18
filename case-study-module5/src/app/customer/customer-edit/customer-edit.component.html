@@ -10,7 +10,7 @@
         <tr>
           <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Name</span>
+              <span class="input-group-text">Name <i>&nbsp;*</i></span>
               <input style="width: 100%" type="text" class="form-control" formControlName="name"><br>
             </div>
           </td>
@@ -18,8 +18,15 @@
 
         <tr>
           <td>
+            <p *ngIf="customerForm.controls.name.hasError('required') && customerForm.controls.name.touched">Name Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.name.hasError('pattern') && customerForm.controls.name.touched">Name Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Date Of Birth</span>
+              <span class="input-group-text">Date Of Birth <i>&nbsp;*</i></span>
               <input type="date" class="form-control" formControlName="dateOfBirth"><br>
             </div>
           </td>
@@ -27,8 +34,15 @@
 
         <tr>
           <td>
+            <p *ngIf="customerForm.controls.dateOfBirth.hasError('required') && customerForm.controls.dateOfBirth.touched">Date Of Birth Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.dateOfBirth.hasError('checkAge') && customerForm.controls.dateOfBirth.touched">Date Of Birth Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Gender</span>
+              <span class="input-group-text">Gender <i>&nbsp;*</i></span>
               <label style="width: 100%">
                 <select class="form-select" formControlName="gender">
                   <option>Male</option>
@@ -42,8 +56,14 @@
 
         <tr>
           <td>
+            <p *ngIf="customerForm.controls.gender.hasError('required') && customerForm.controls.gender.touched">Gender Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Id Card</span>
+              <span class="input-group-text">Id Card <i>&nbsp;*</i></span>
               <input type="text" class="form-control" formControlName="idCard"><br>
             </div>
           </td>
@@ -51,8 +71,15 @@
 
         <tr>
           <td>
+            <p *ngIf="customerForm.controls.idCard.hasError('required') && customerForm.controls.idCard.touched">Id Card Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.idCard.hasError('pattern') && customerForm.controls.idCard.touched">Id Card Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Phone</span>
+              <span class="input-group-text">Phone <i>&nbsp;*</i></span>
               <input type="text" class="form-control" formControlName="phone"><br>
             </div>
           </td>
@@ -60,8 +87,15 @@
 
         <tr>
           <td>
+            <p *ngIf="customerForm.controls.phone.hasError('required') && customerForm.controls.phone.touched">Phone Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.phone.hasError('pattern') && customerForm.controls.phone.touched">Phone Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Email</span>
+              <span class="input-group-text">Email <i>&nbsp;*</i></span>
               <input type="text" class="form-control" formControlName="email"><br>
             </div>
           </td>
@@ -69,8 +103,15 @@
 
         <tr>
           <td>
+            <p *ngIf="customerForm.controls.email.hasError('required') && customerForm.controls.email.touched">Email Can't Be Blank</p>
+            <p *ngIf="customerForm.controls.email.hasError('email') && customerForm.controls.email.touched">Email Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Address</span>
+              <span class="input-group-text">Address <i>&nbsp;*</i></span>
               <input type="text" class="form-control" formControlName="address"><br>
             </div>
           </td>
@@ -78,8 +119,14 @@
 
         <tr>
           <td>
+            <p *ngIf="customerForm.controls.address.hasError('required') && customerForm.controls.address.touched">Address Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Customer Type</span>
+              <span class="input-group-text">Customer Type <i>&nbsp;*</i></span>
               <label style="width: 100%">
                 <select class="form-select" formControlName="customerType.name">
                   <option>Diamond</option>
@@ -94,9 +141,15 @@
         </tr>
 
         <tr>
+          <td>
+            <p *ngIf="customerForm.controls.customerType.hasError('required') && customerForm.controls.customerType.touched">Customer Type Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr>
           <td style="padding: 20px">
             <div class="vstack" style="display: inline">
-              <button style="border: none; background: none" class="m-5">
+              <button style="border: none; background: none" class="m-5" [disabled]="!customerForm.valid">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                      class="bi bi-pencil text-success" viewBox="0 0 16 16">
                   <path

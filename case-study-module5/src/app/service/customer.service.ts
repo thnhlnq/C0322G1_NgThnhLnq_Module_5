@@ -20,7 +20,7 @@ export class CustomerService {
   }, {
     id: 2,
     name: 'Trần Thị B',
-    dateOfBirth: '01/11/1997',
+    dateOfBirth: '1997-10-10',
     gender: 'Female',
     idCard: 784563129,
     phone: 741256394,

@@ -10,12 +10,12 @@
         <tr>
           <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Facility Type</span>
+              <span class="input-group-text">Facility Type <i>&nbsp;*</i></span>
               <label style="width: 100%">
-                <select class="form-select" formControlName="facilityType">
-                  <option>Villa</option>
-                  <option>House</option>
-                  <option>Room</option>
+                <select class="form-select" formControlName="facilityType" (change)="selectType($event.target.value)">
+                  <option value="Villa">Villa</option>
+                  <option value="House">House</option>
+                  <option value="Room">Room</option>
                 </select>
               </label>
             </div>
@@ -24,38 +24,61 @@
 
         <tr>
           <td>
-            <div class="input-group flex-nowrap">
-              <span class="input-group-text">Name</span>
-              <input style="width: 100%" type="text" class="form-control"
-                     placeholder="Enter Name" formControlName="name"><br>
-            </div>
+            <p
+              *ngIf="facilitiesForm.controls.facilityType.hasError('required') && facilitiesForm.controls.facilityType.touched">Facility Type Can't Be Blank</p>
           </td>
         </tr>
 
         <tr>
           <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Area</span>
-              <input type="text" class="form-control"
-                     placeholder="Enter Area" formControlName="area"><br>
+              <span class="input-group-text">Name <i>&nbsp;*</i></span>
+              <input style="width: 100%" type="text" class="form-control" placeholder="Enter Name" formControlName="name"><br>
             </div>
           </td>
         </tr>
 
         <tr>
           <td>
-            <div class="input-group flex-nowrap">
-              <span class="input-group-text">Cost</span>
-              <input type="text" class="form-control"
-                     placeholder="Enter Cost" formControlName="cost"><br>
-            </div>
+            <p *ngIf="facilitiesForm.controls.name.hasError('required') && facilitiesForm.controls.name.touched">Name Can't Be Blank</p>
+            <p *ngIf="facilitiesForm.controls.name.hasError('pattern') && facilitiesForm.controls.name.touched">Name Incorrect Format</p>
           </td>
         </tr>
 
         <tr>
           <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Max People</span>
+              <span class="input-group-text">Area <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Area" formControlName="area"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p *ngIf="facilitiesForm.controls.area.hasError('required') && facilitiesForm.controls.area.touched">Area Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Cost <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Cost" formControlName="cost"><br>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p *ngIf="facilitiesForm.controls.cost.hasError('required') && facilitiesForm.controls.cost.touched">Cost Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text">Max People <i>&nbsp;*</i></span>
               <input type="text" class="form-control" placeholder="Enter Max People" formControlName="maxPeople"><br>
             </div>
           </td>
@@ -63,8 +86,15 @@
 
         <tr>
           <td>
+            <p *ngIf="facilitiesForm.controls.maxPeople.hasError('required') && facilitiesForm.controls.maxPeople.touched">Max People Can't Be Blank</p>
+            <p *ngIf="facilitiesForm.controls.maxPeople.hasError('pattern') && facilitiesForm.controls.maxPeople.touched">Max People Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Rent Type</span>
+              <span class="input-group-text">Rent Type <i>&nbsp;*</i></span>
               <label style="width: 100%">
                 <select class="form-select" formControlName="rentType">
                   <option>Year</option>
@@ -79,28 +109,44 @@
 
         <tr>
           <td>
+            <p *ngIf="facilitiesForm.controls.rentType.hasError('required') && facilitiesForm.controls.rentType.touched">Rent Type Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden">
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Standard Room</span>
-              <input type="text" class="form-control" placeholder="Enter Standard Room"
-                     formControlName="standardRoom"><br>
+              <span class="input-group-text">Standard Room <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Standard Room" formControlName="standardRoom"><br>
             </div>
           </td>
         </tr>
 
         <tr>
           <td>
+            <p *ngIf="facilitiesForm.controls.standardRoom.hasError('required') && facilitiesForm.controls.standardRoom.touched">Standard Room Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden">
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Description Other Convenience</span>
-              <input type="text" class="form-control" placeholder="Enter Description Other Convenience"
-                     formControlName="descriptionOtherConvenience"><br>
+              <span class="input-group-text">Description Other Convenience <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Description Other Convenience" formControlName="descriptionOtherConvenience"><br>
             </div>
           </td>
         </tr>
 
         <tr>
           <td>
+            <p *ngIf="facilitiesForm.controls.descriptionOtherConvenience.hasError('required') && facilitiesForm.controls.descriptionOtherConvenience.touched">Description Other Convenience Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr *ngIf="type === 'Villa'" type="hidden">
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Pool Area</span>
+              <span class="input-group-text">Pool Area <i>&nbsp;*</i></span>
               <input type="text" class="form-control" placeholder="Enter Pool Area" formControlName="poolArea"><br>
             </div>
           </td>
@@ -108,21 +154,39 @@
 
         <tr>
           <td>
+            <p *ngIf="facilitiesForm.controls.poolArea.hasError('required') && facilitiesForm.controls.poolArea.touched">Pool Area Can't Be Blank</p>
+            <p *ngIf="facilitiesForm.controls.poolArea.hasError('pattern') && facilitiesForm.controls.poolArea.touched">Pool Area Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden">
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Number of Floor</span>
-              <input type="text" class="form-control" placeholder="Enter Number of Floor"
-                     formControlName="numberOfFloor"><br>
+              <span class="input-group-text">Number Floor <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Number Floor" formControlName="numberFloor"><br>
             </div>
           </td>
         </tr>
 
         <tr>
           <td>
+            <p *ngIf="facilitiesForm.controls.numberFloor.hasError('required') && facilitiesForm.controls.numberFloor.touched">Number Floor Can't Be Blank</p>
+            <p *ngIf="facilitiesForm.controls.numberFloor.hasError('pattern') && facilitiesForm.controls.numberFloor.touched">Number Floor Incorrect Format</p>
+          </td>
+        </tr>
+
+        <tr *ngIf="type === 'Room'" type="hidden">
+          <td>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text">Facility Free</span>
-              <input type="text" class="form-control" placeholder="Enter Facility Free"
-                     formControlName="facilityFree"><br>
+              <span class="input-group-text">Facility Free <i>&nbsp;*</i></span>
+              <input type="text" class="form-control" placeholder="Enter Facility Free" formControlName="facilityFree"><br>
             </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p *ngIf="facilitiesForm.controls.facilityFree.hasError('required') && facilitiesForm.controls.facilityFree.touched">Facility Free Can't Be Blank</p>
           </td>
         </tr>
 
@@ -136,9 +200,15 @@
         </tr>
 
         <tr>
+          <td>
+            <p *ngIf="facilitiesForm.controls.image.hasError('required') && facilitiesForm.controls.image.touched">Image Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr>
           <td style="padding: 20px">
             <div class="vstack" style="display: inline">
-              <button style="border: none; background: none" class="m-5">
+              <button style="border: none; background: none" class="m-5" [disabled]="!facilitiesForm.valid">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                      class="bi bi-plus-circle text-success" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
