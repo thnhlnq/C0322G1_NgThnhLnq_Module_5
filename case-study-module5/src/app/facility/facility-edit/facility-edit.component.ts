@@ -26,11 +26,11 @@ export class FacilityEditComponent implements OnInit {
         cost: new FormControl(facility.cost, [Validators.required]),
         maxPeople: new FormControl(facility.maxPeople, [Validators.required]),
         rentType: new FormControl(facility.rentType, [Validators.required]),
-        standardRoom: new FormControl(facility.standardRoom, [Validators.required]),
-        descriptionOtherConvenience: new FormControl(facility.descriptionOtherConvenience, [Validators.required]),
-        poolArea: new FormControl(facility.poolArea, [Validators.required, Validators.pattern('^[1-9]+$')]),
-        numberFloor: new FormControl(facility.numberFloor, [Validators.required, Validators.pattern('^[1-9]+$')]),
-        facilityFree: new FormControl(facility.facilityFree, [Validators.required]),
+        standardRoom: new FormControl('Normal', [Validators.required]),
+        descriptionOtherConvenience: new FormControl('No', [Validators.required]),
+        poolArea: new FormControl(1, [Validators.required, Validators.pattern('^[1-9]+$')]),
+        numberFloor: new FormControl(1, [Validators.required, Validators.pattern('^[1-9]+$')]),
+        facilityFree: new FormControl('No', [Validators.required]),
         image: new FormControl(facility.image, [Validators.required])
       });
     });

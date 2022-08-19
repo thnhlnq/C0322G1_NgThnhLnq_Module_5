@@ -17,7 +17,7 @@ export class CustomerEditComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = +paramMap.get('id');
+      this.id = + paramMap.get('id');
       const customer = this.getCustomer(this.id);
       this.customerForm = new FormGroup({
         id: new FormControl(customer.id),
