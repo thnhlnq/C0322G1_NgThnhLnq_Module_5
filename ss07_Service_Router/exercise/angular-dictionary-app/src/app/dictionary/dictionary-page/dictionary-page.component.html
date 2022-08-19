@@ -1,1 +1,16 @@
-<p>dictionary-page works!</p>
+<div class="container">
+  <div class="row">
+    <div>
+      <table class="table">
+        <tr>
+          <th>English</th>
+          <th>Viet Nam</th>
+        </tr>
+        <tr *ngFor="let item of dictionary">
+          <td>{{item.word}}</td>
+          <td><a [routerLink]="['detail', item.mean]">{{item.mean}}</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

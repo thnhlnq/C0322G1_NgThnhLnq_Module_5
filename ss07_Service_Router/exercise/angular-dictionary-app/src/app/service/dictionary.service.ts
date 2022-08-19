@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Word} from './word';
+import {Word} from '../model/word';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +7,9 @@ import {Word} from './word';
 export class DictionaryService {
 
   dictionaries: Word[] = [{
-    id: 1,
     word: 'Hello',
     mean: 'Xin Chào'
   }, {
-    id: 2,
     word: 'Goodbye',
     mean: 'Tạm Biệt'
   }];
@@ -23,7 +21,7 @@ export class DictionaryService {
     return this.dictionaries;
   }
 
-  findById(id: number) {
-    return this.dictionaries.find(dictionary => dictionary.id === id);
+  findByMean(mean: string) {
+    return this.dictionaries.find(dictionary => dictionary.mean === mean);
   }
 }
