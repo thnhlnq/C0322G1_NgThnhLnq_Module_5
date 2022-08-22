@@ -4,7 +4,7 @@
     <div class=" row text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
       <h1>Edit Customer</h1>
     </div>
-    <form [formGroup]="customerForm" (ngSubmit)="editCustomer(id)">
+    <form [formGroup]="customerForm">
       <table style="display: inline-grid">
         <tbody>
         <tr>
@@ -128,7 +128,7 @@
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Customer Type <i>&nbsp;*</i></span>
               <label style="width: 100%">
-                <select class="form-select" formControlName="customerType.name">
+                <select class="form-select" formControlName="customerType">
                   <option>Diamond</option>
                   <option>Platinum</option>
                   <option>Gold</option>
@@ -149,7 +149,7 @@
         <tr>
           <td style="padding: 20px">
             <div class="vstack" style="display: inline">
-              <button style="border: none; background: none" class="m-5" [disabled]="!customerForm.valid">
+              <button style="border: none; background: none" class="m-5" [disabled]="!customerForm.valid" (click)="editCustomer(id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                      class="bi bi-pencil text-success" viewBox="0 0 16 16">
                   <path

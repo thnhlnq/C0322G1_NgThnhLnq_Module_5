@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ContractService} from '../../service/contract.service';
+import {ContractService} from '../contract.service';
 import {Router} from '@angular/router';
 import {Customer} from '../../model/customer';
-import {CustomerService} from '../../service/customer.service';
-import {FacilityService} from '../../service/facility.service';
+import {CustomerService} from '../../customer/customer.service';
+import {FacilityService} from '../../facility/facility.service';
 import {Facility} from '../../model/facility';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-contract-create',
@@ -22,7 +23,7 @@ export class ContractCreateComponent implements OnInit {
     deposit: new FormControl('', [Validators.pattern('^[1-9]+$')])
   });
 
-  customers: Customer[] = this.customerService.getAll();
+  customers: Observable<Customer[]> = this.customerService.getAll();
 
   facilities: Facility[] = this.facilitiesService.getAll();
 

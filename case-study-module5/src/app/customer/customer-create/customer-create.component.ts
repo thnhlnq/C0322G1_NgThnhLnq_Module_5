@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CustomerService} from '../../service/customer.service';
+import {CustomerService} from '../customer.service';
 import {Router} from '@angular/router';
 import {checkDateOfBirth} from '../../checkDateOfBirth';
 
@@ -10,9 +10,6 @@ import {checkDateOfBirth} from '../../checkDateOfBirth';
   styleUrls: ['./customer-create.component.css']
 })
 export class CustomerCreateComponent implements OnInit {
-
-  constructor(private customerService: CustomerService, private router: Router) {
-  }
 
   customerForm: FormGroup = new FormGroup({
     id: new FormControl(Math.floor(Math.random()) * 100),
@@ -26,14 +23,20 @@ export class CustomerCreateComponent implements OnInit {
     customerType: new FormControl('', [Validators.required])
   });
 
+  constructor(private customerService: CustomerService, private router: Router) {
+  }
+
   ngOnInit() {
   }
 
   submit() {
     const customer = this.customerForm.value;
-    this.customerService.saveCustomer(customer);
-    this.customerForm.reset();
-    this.router.navigate(['customer/list']);
-    alert('Added Customer Success..');
+    this.customerService.saveCustomer(customer).subscribe(() => {
+      this.customerForm.reset();
+      alert('Added Customer Success..');
+      this.router.navigate(['/customer/list']);
+    }, e => {
+      console.log(e);
+    });
   }
 }

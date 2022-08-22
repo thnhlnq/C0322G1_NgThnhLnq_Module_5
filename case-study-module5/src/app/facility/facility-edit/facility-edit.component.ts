@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {FacilityService} from '../../service/facility.service';
+import {FacilityService} from '../facility.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {CustomerService} from '../../customer/customer.service';
+import {checkDateOfBirth} from '../../checkDateOfBirth';
 
 @Component({
   selector: 'app-facility-edit',
@@ -17,7 +19,17 @@ export class FacilityEditComponent implements OnInit {
               private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const facility = this.getFacility(this.id);
+      this.getFacility(this.id);
+    });
+  }
+
+  type = '';
+
+  ngOnInit() {
+  }
+
+  getFacility(id: number) {
+    return this.facilitiesService.findById(id).subscribe(facility => {
       this.facilitiesForm = new FormGroup({
         id: new FormControl(facility.id),
         facilityType: new FormControl(facility.facilityType, [Validators.required]),
@@ -31,24 +43,19 @@ export class FacilityEditComponent implements OnInit {
         poolArea: new FormControl(1, [Validators.required, Validators.pattern('^[1-9]+$')]),
         numberFloor: new FormControl(1, [Validators.required, Validators.pattern('^[1-9]+$')]),
         facilityFree: new FormControl('No', [Validators.required]),
-        image: new FormControl(facility.image, [Validators.required])
+        image: new FormControl(facility.image)
       });
     });
   }
 
-  type = '';
-
-  ngOnInit() {
-  }
-
-  getFacility(id: number) {
-    return this.facilitiesService.findById(id);
-  }
-
   editFacility(id: number) {
     const facility = this.facilitiesForm.value;
-    this.facilitiesService.editFacility(id, facility);
-    this.router.navigate(['facility/list']);
+    this.facilitiesService.editFacility(id, facility).subscribe(() => {
+      this.router.navigate(['/facility/list']);
+      alert('Edited Facility Success..');
+    }, e => {
+      console.log(e);
+    });
   }
 
   selectType(value) {

@@ -1,0 +1,30 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "name": "name"
+    },
+    {
+      "id": 2,
+      "name": "naem 2"
+    },
+    {
+      "id": 3,
+      "name": "naem 2"
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "IPhone 12",
+      "price": 2400000,
+      "description": "New"
+    },
+    {
+      "id": 2,
+      "name": "IPhone 11",
+      "price": 1560000,
+      "description": "Like new"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Facility} from '../../model/facility';
-import {FacilityService} from '../../service/facility.service';
+import {FacilityService} from '../facility.service';
 
 @Component({
   selector: 'app-facility-list',
@@ -22,7 +22,9 @@ export class FacilityListComponent implements OnInit {
   }
 
   getAll() {
-    this.facilities = this.facilityService.getAll();
+    this.facilityService.getAll().subscribe(facilities => {
+      this.facilities = facilities;
+    });
   }
 
   openDelete(id: number, name: string) {
@@ -30,8 +32,11 @@ export class FacilityListComponent implements OnInit {
     this.name = name;
   }
 
-  delete(id: number) {
-    this.facilityService.deleteFacility(id);
-    this.facilities = this.facilityService.getAll();
+  deleteFacility(id: number) {
+    this.facilityService.deleteFacility(id).subscribe(() => {
+      this.getAll();
+    }, e => {
+      console.log(e);
+    });
   }
 }

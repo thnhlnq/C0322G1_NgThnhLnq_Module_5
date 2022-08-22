@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CustomerService} from '../../service/customer.service';
+import {CustomerService} from '../customer.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {checkDateOfBirth} from '../../checkDateOfBirth';
 
@@ -17,8 +17,16 @@ export class CustomerEditComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = + paramMap.get('id');
-      const customer = this.getCustomer(this.id);
+      this.id = +paramMap.get('id');
+      this.getCustomer(this.id);
+    });
+  }
+
+  ngOnInit() {
+  }
+
+  getCustomer(id: number) {
+    return this.customerService.findById(id).subscribe(customer => {
       this.customerForm = new FormGroup({
         id: new FormControl(customer.id),
         name: new FormControl(customer.name, [Validators.required, Validators.pattern('^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$')]),
@@ -33,17 +41,13 @@ export class CustomerEditComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
-
-  getCustomer(id: number) {
-    return this.customerService.findById(id);
-  }
-
   editCustomer(id: number) {
     const customer = this.customerForm.value;
-    this.customerService.editCustomer(id, customer);
-    this.router.navigate(['customer/list']);
-    alert('Edited Customer Success..');
+    this.customerService.editCustomer(id, customer).subscribe(() => {
+      this.router.navigate(['/customer/list']);
+      alert('Edited Customer Success..');
+    }, e => {
+      console.log(e);
+    });
   }
 }

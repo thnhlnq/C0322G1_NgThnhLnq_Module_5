@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../model/customer';
-import {CustomerService} from '../../service/customer.service';
+import {CustomerService} from '../customer.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -23,7 +24,9 @@ export class CustomerListComponent implements OnInit {
   }
 
   getAll() {
-    this.customers = this.customerService.getAll();
+    this.customerService.getAll().subscribe(customers => {
+      this.customers = customers;
+    });
   }
 
   openDelete(id: number, name: string) {
@@ -31,8 +34,11 @@ export class CustomerListComponent implements OnInit {
     this.name = name;
   }
 
-  delete(id: number) {
-    this.customerService.deleteCustomer(id);
-    this.customers = this.customerService.getAll();
+  deleteCustomer(id: number) {
+    this.customerService.deleteCustomer(id).subscribe(() => {
+      this.getAll();
+    }, e => {
+      console.log(e);
+    });
   }
 }
