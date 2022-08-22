@@ -17,11 +17,11 @@ export class DictionaryService {
   constructor() {
   }
 
-  getAll() {
+  getAll(): Word[] {
     return this.dictionaries;
   }
 
-  findByMean(mean: string) {
+  findByMean(mean: string): Word {
     return this.dictionaries.find(dictionary => dictionary.mean === mean);
   }
 }

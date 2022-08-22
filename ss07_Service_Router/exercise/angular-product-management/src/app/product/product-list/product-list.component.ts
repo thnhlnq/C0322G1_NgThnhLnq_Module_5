@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../../service/product.service';
 import {Product} from '../../model/product';
 
@@ -15,22 +15,23 @@ export class ProductListComponent implements OnInit {
 
   name: string;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {
+  }
 
   ngOnInit() {
     this.getAll();
   }
 
-  getAll() {
+  getAll(): void {
     this.products = this.productService.getAll();
   }
 
-  openDelete(id: number, name: string) {
+  openDelete(id: number, name: string): void {
     this.id = id;
     this.name = name;
   }
 
-  delete(id: number) {
+  delete(id: number): void {
     this.productService.deleteProduct(id);
     this.products = this.productService.getAll();
   }

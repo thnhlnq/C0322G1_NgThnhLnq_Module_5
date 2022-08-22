@@ -36,15 +36,15 @@ export class ProductService {
   constructor() {
   }
 
-  getAll() {
+  getAll(): Product[] {
     return this.products;
   }
 
-  saveProduct(product) {
+  saveProduct(product): void {
     this.products.push(product);
   }
 
-  findById(id: number) {
+  findById(id: number): Product {
     return this.products.find(product => product.id === id);
   }
 

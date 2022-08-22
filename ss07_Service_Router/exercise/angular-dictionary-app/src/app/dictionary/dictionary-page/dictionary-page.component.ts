@@ -18,7 +18,7 @@ export class DictionaryPageComponent implements OnInit {
     this.getAll();
   }
 
-  getAll() {
+  getAll(): void {
     this.dictionary = this.dictionaryService.getAll();
   }
 }
