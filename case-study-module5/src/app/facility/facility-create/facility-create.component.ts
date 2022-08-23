@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {FacilityService} from '../facility.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-facility-create',
@@ -16,17 +17,19 @@ export class FacilityCreateComponent implements OnInit {
     name: new FormControl('', [Validators.required, Validators.pattern('^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$')]),
     area: new FormControl('', [Validators.required]),
     cost: new FormControl('', [Validators.required]),
-    maxPeople: new FormControl('', [Validators.required, Validators.pattern('^[1-9]+$')]),
+    maxPeople: new FormControl('', [Validators.required, Validators.pattern('^[1-9]+\\d$')]),
     rentType: new FormControl('', [Validators.required]),
     standardRoom: new FormControl('', [Validators.required]),
     descriptionOtherConvenience: new FormControl('', [Validators.required]),
-    poolArea: new FormControl('', [Validators.required, Validators.pattern('^[1-9]+$')]),
-    numberFloor: new FormControl('', [Validators.required, Validators.pattern('^[1-9]+$')]),
-    facilityFree: new FormControl('', [Validators.required]),
+    poolArea: new FormControl('', [Validators.required, Validators.pattern('^[1-9]+\\d$')]),
+    numberFloor: new FormControl('', [Validators.required, Validators.pattern('^[1-9]+\\d$')]),
+    facilityFree: new FormControl(''),
     image: new FormControl('')
   });
 
-  constructor(private facilitiesService: FacilityService, private router: Router) {
+  constructor(private facilitiesService: FacilityService,
+              private toast: ToastrService,
+              private router: Router) {
   }
 
   type = '';
@@ -38,7 +41,7 @@ export class FacilityCreateComponent implements OnInit {
     const facility = this.facilitiesForm.value;
     this.facilitiesService.saveFacility(facility).subscribe(() => {
       this.facilitiesForm.reset();
-      alert('Added Facility Success..');
+      this.toast.success('Added Facility Success..', 'Notification..');
       this.router.navigate(['/facility/list']);
     }, e => {
       console.log(e);

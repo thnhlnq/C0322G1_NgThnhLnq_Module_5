@@ -19,7 +19,7 @@ export class CustomerService {
     return this.http.get<Customer[]>(API_URL + '/customer');
   }
 
-  saveCustomer(customer): Observable<Customer> {
+  saveCustomer(customer: Customer): Observable<Customer> {
     return this.http.post<Customer>(API_URL + '/customer', customer);
   }
 
@@ -33,5 +33,9 @@ export class CustomerService {
 
   deleteCustomer(id: number): Observable<Customer> {
     return this.http.delete<Customer>(`${API_URL}/customer/${id}`);
+  }
+
+  searchCustomer(name: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${API_URL}/customer?q=` + name);
   }
 }

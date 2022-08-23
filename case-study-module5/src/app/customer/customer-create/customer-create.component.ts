@@ -3,6 +3,9 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../customer.service';
 import {Router} from '@angular/router';
 import {checkDateOfBirth} from '../../checkDateOfBirth';
+import {CustomerTypeService} from '../customer-type.service';
+import {CustomerType} from '../../model/customer-type';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer-create',
@@ -23,20 +26,38 @@ export class CustomerCreateComponent implements OnInit {
     customerType: new FormControl('', [Validators.required])
   });
 
-  constructor(private customerService: CustomerService, private router: Router) {
+  customerTypes: CustomerType[] = [];
+
+  constructor(private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService,
+              private toast: ToastrService,
+              private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getCustomerType();
   }
 
-  submit() {
+  submit(): void {
     const customer = this.customerForm.value;
-    this.customerService.saveCustomer(customer).subscribe(() => {
-      this.customerForm.reset();
-      alert('Added Customer Success..');
-      this.router.navigate(['/customer/list']);
-    }, e => {
-      console.log(e);
+    this.customerTypeService.findById(customer.customerType).subscribe(customerType => {
+      customer.customerType = {
+        id: customerType.id,
+        name: customerType.name
+      };
+      this.customerService.saveCustomer(customer).subscribe(() => {
+        this.customerForm.reset();
+        this.toast.success('Added Customer Success..', 'Notification');
+        this.router.navigate(['/customer/list']);
+      }, e => {
+        console.log(e);
+      });
+    });
+  }
+
+  getCustomerType(): void {
+    this.customerTypeService.getAll().subscribe(customerTypes => {
+      this.customerTypes = customerTypes;
     });
   }
 }

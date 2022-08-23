@@ -128,11 +128,7 @@
               <span class="input-group-text">Customer Type <i>&nbsp;*</i></span>
               <label style="width: 100%;">
                 <select class="form-select" formControlName="customerType">
-                  <option>Diamond</option>
-                  <option>Platinum</option>
-                  <option>Gold</option>
-                  <option>Silver</option>
-                  <option>Member</option>
+                  <option *ngFor="let item of customerTypes" [ngValue]="item.id">{{item.name}}</option>
                 </select>
               </label>
             </div>

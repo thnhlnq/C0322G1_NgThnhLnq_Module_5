@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FacilityService} from '../facility.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {CustomerService} from '../../customer/customer.service';
-import {checkDateOfBirth} from '../../checkDateOfBirth';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-facility-edit',
@@ -15,6 +14,7 @@ export class FacilityEditComponent implements OnInit {
   id: number;
 
   constructor(private facilitiesService: FacilityService,
+              private toast: ToastrService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
@@ -36,13 +36,13 @@ export class FacilityEditComponent implements OnInit {
         name: new FormControl(facility.name, [Validators.required, Validators.pattern('^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$')]),
         area: new FormControl(facility.area, [Validators.required]),
         cost: new FormControl(facility.cost, [Validators.required]),
-        maxPeople: new FormControl(facility.maxPeople, [Validators.required]),
+        maxPeople: new FormControl(facility.maxPeople, [Validators.required, Validators.pattern('^[1-9]+\\d$')]),
         rentType: new FormControl(facility.rentType, [Validators.required]),
         standardRoom: new FormControl('Normal', [Validators.required]),
         descriptionOtherConvenience: new FormControl('No', [Validators.required]),
-        poolArea: new FormControl(1, [Validators.required, Validators.pattern('^[1-9]+$')]),
-        numberFloor: new FormControl(1, [Validators.required, Validators.pattern('^[1-9]+$')]),
-        facilityFree: new FormControl('No', [Validators.required]),
+        poolArea: new FormControl(11, [Validators.required, Validators.pattern('^[1-9]+\\d$')]),
+        numberFloor: new FormControl(11, [Validators.required, Validators.pattern('^[1-9]+\\d$')]),
+        facilityFree: new FormControl('No'),
         image: new FormControl(facility.image)
       });
     });
@@ -52,7 +52,7 @@ export class FacilityEditComponent implements OnInit {
     const facility = this.facilitiesForm.value;
     this.facilitiesService.editFacility(id, facility).subscribe(() => {
       this.router.navigate(['/facility/list']);
-      alert('Edited Facility Success..');
+      this.toast.success('Edited Facility Success..', 'Notification..');
     }, e => {
       console.log(e);
     });

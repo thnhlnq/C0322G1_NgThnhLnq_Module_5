@@ -6,7 +6,7 @@ import {Customer} from '../../model/customer';
 import {CustomerService} from '../../customer/customer.service';
 import {FacilityService} from '../../facility/facility.service';
 import {Facility} from '../../model/facility';
-import {Observable} from 'rxjs';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-contract-create',
@@ -20,26 +20,53 @@ export class ContractCreateComponent implements OnInit {
     facility: new FormControl(),
     startDate: new FormControl(),
     endDate: new FormControl(),
-    deposit: new FormControl('', [Validators.pattern('^[1-9]+$')])
+    deposit: new FormControl('', [Validators.pattern('^[1-9]+\\d$')])
   });
 
-  customers: Observable<Customer[]> = this.customerService.getAll();
+  customers: Customer[] = [];
 
-  facilities: Facility[] = this.facilitiesService.getAll();
+  facilities: Facility[] = [];
 
   constructor(private contractService: ContractService,
               private customerService: CustomerService,
               private facilitiesService: FacilityService,
+              private toast: ToastrService,
               private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getCustomer();
+    this.getFacility();
+  }
+
+  getCustomer() {
+    this.customerService.getAll().subscribe(customers => {
+      this.customers = customers;
+    });
+  }
+
+  getFacility() {
+    this.facilitiesService.getAll().subscribe(facilities => {
+      this.facilities = facilities;
+    });
   }
 
   submit() {
     const contract = this.contractForm.value;
-    this.contractService.saveContract(contract);
-    this.contractForm.reset();
-    this.router.navigate(['contract/list']);
+    contract.customer = {
+      name: contract.customer
+    };
+
+    contract.facility = {
+      name: contract.facility
+    };
+
+    this.contractService.saveContract(contract).subscribe(() => {
+      this.contractForm.reset();
+      this.toast.success('Added Contract Success..', 'Notification..');
+      this.router.navigate(['/contract/list']);
+    }, e => {
+      console.log(e);
+    });
   }
 }

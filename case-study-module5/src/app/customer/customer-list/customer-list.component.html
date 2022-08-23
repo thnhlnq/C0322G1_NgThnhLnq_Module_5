@@ -3,13 +3,21 @@
     <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
       <h1 class="pt-5">Customer List</h1>
     </div>
-    <div style="text-align: center">
-      <a routerLink="/customer/create">
+    <div class="row mb-4" style="text-align: center">
+      <a class="col-5 mt-3" routerLink="/customer/create">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-plus text-success" viewBox="0 0 16 16">
           <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
           <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
         </svg>
       </a>
+      <div class="col-6 position-relative mx-auto me-4" style="max-width: 400px;">
+        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="search" placeholder="Search" [(ngModel)]="nameSearch">
+        <button style="border: none; background: none" class="py-2 position-absolute top-0 end-0 mt-2 me-4" (click)="search()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search text-success" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <div>
@@ -27,7 +35,7 @@
           <th></th>
           <th></th>
         </tr>
-        <tr *ngFor="let customer of customers; index as i">
+        <tr *ngFor="let customer of customers | paginate: {itemsPerPage: 5, currentPage: page}; index as i">
           <td>{{i + 1}}</td>
           <td>{{customer.name}}</td>
           <td>{{customer.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
@@ -36,7 +44,7 @@
           <td>{{customer.phone}}</td>
           <td>{{customer.email}}</td>
           <td>{{customer.address}}</td>
-          <td>{{customer.customerType}}</td>
+          <td>{{customer.customerType.name}}</td>
           <td>
             <a [routerLink]="['/customer/edit', customer.id]">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil text-success" viewBox="0 0 16 16">
@@ -53,6 +61,7 @@
           </td>
         </tr>
       </table>
+      <pagination-controls (pageChange)="page=$event"></pagination-controls>
     </div>
   </div>
 
@@ -65,7 +74,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Delete: <span style="color: red"> {{name}} </span>
+          Delete: &nbsp;<span style="color: red"> {{name}} </span>
         </div>
         <div class="modal-footer">
           <button type="button" style="background: none; border: none" data-bs-dismiss="modal">

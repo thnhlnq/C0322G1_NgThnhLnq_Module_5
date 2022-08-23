@@ -11,14 +11,27 @@ export class ContractListComponent implements OnInit {
 
   contracts: Contract[] = [];
 
+  keySearch: string;
+
+  page = 1;
+
   constructor(private contractService: ContractService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAll();
   }
 
-  getAll() {
-    this.contracts = this.contractService.getAll();
+  getAll(): void {
+    this.contractService.getAll().subscribe(contracts => {
+      this.contracts = contracts;
+    });
+  }
+
+  search() {
+    return this.contractService.searchContract(this.keySearch).subscribe(listSearch => {
+      this.contracts = listSearch;
+      this.page = 1;
+    });
   }
 }

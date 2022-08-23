@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Facility} from '../model/Facility';
 import {environment} from '../../environments/environment';
+import {Customer} from '../model/customer';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -32,5 +33,9 @@ export class FacilityService {
 
   deleteFacility(id: number): Observable<Facility> {
     return this.http.delete<Facility>(`${API_URL}/facility/${id}`);
+  }
+
+  searchFacility(name: string): Observable<Facility[]> {
+    return this.http.get<Facility[]>(`${API_URL}/facility?q=` + name);
   }
 }

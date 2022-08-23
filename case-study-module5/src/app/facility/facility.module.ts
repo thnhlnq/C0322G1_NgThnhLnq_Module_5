@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
 import {FacilityRoutingModule} from './facility-routing.module';
 import {FacilityListComponent} from './facility-list/facility-list.component';
 import {FacilityCreateComponent} from './facility-create/facility-create.component';
 import {FacilityEditComponent} from './facility-edit/facility-edit.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,9 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     FacilityRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    FormsModule
   ]
 })
 export class FacilityModule {

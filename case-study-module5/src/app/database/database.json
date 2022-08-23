@@ -25,7 +25,7 @@
     {
       "id": 1,
       "name": "Nguyễn Văn A",
-      "dateOfBirth": "1999-03-02",
+      "dateOfBirth": "2000-10-10",
       "gender": "Male",
       "idCard": 124563987,
       "phone": "0901452369",
@@ -38,27 +38,55 @@
     },
     {
       "id": 2,
-      "name": "Trần Thị Bình",
-      "dateOfBirth": "1997-02-13",
-      "gender": "Female",
-      "idCard": 784563129,
-      "phone": "0901234567",
-      "email": "thib@gmail.com",
-      "address": "Quảng Nam",
+      "name": "Nguyễn Đức A",
+      "dateOfBirth": "2000-10-10",
+      "gender": "Male",
+      "idCard": 124563987,
+      "phone": "0901452369",
+      "email": "vana@gmail.com",
+      "address": "Đà Nẵng",
       "customerType": {
-        "id": 1,
-        "name": "Diamond"
+        "id": 3,
+        "name": "Gold"
       }
     },
     {
       "id": 3,
-      "name": "Ngọc C",
-      "dateOfBirth": "1999-06-01",
+      "name": "Trần Văn A",
+      "dateOfBirth": "2000-10-10",
       "gender": "Male",
-      "idCard": 123456789,
-      "phone": "0901234567",
-      "email": "name@gmail.com",
-      "address": "address",
+      "idCard": 124563987,
+      "phone": "0901452369",
+      "email": "vana@gmail.com",
+      "address": "Đà Nẵng",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Nguyễn Văn V",
+      "dateOfBirth": "2000-10-10",
+      "gender": "Male",
+      "idCard": 124563987,
+      "phone": "0901452369",
+      "email": "vana@gmail.com",
+      "address": "Đà Nẵng",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Văn P",
+      "dateOfBirth": "2000-10-10",
+      "gender": "Male",
+      "idCard": 124563987,
+      "phone": "0901452369",
+      "email": "vana@gmail.com",
+      "address": "Đà Nẵng",
       "customerType": {
         "id": 3,
         "name": "Gold"
@@ -66,41 +94,55 @@
     },
     {
       "id": 6,
-      "name": "Customer",
-      "dateOfBirth": "1999-01-10",
-      "gender": "Female",
-      "idCard": 312564879,
-      "phone": "0901234569",
-      "email": "m@makd",
-      "address": "akjbsâc",
-      "customerType": {
-        "id": 2,
-        "name": "Platinum"
-      }
-    },
-    {
-      "id": 7,
-      "name": "Name B C",
-      "dateOfBirth": "1999-02-17",
+      "name": "Nguyễn A",
+      "dateOfBirth": "2000-10-10",
       "gender": "Male",
-      "idCard": 321546879,
-      "phone": "0901237896",
-      "email": "m@mpoiuy",
-      "address": "address",
+      "idCard": 124563987,
+      "phone": "0901452369",
+      "email": "vana@gmail.com",
+      "address": "Đà Nẵng",
       "customerType": {
         "id": 3,
         "name": "Gold"
       }
     },
     {
+      "id": 7,
+      "name": "Trần Thị Bình",
+      "dateOfBirth": "1997-08-08",
+      "gender": "Female",
+      "idCard": 784563129,
+      "phone": "0901234567",
+      "email": "thib@gmail.com",
+      "address": "Quảng Nam",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
       "id": 8,
       "name": "N",
       "dateOfBirth": "1999-10-10",
-      "gender": "Female",
+      "gender": "Male",
       "idCard": 123456789,
       "phone": "0901234567",
-      "email": "m@M",
-      "address": "adksljc",
+      "email": "m@m",
+      "address": "a",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Nma Ln",
+      "dateOfBirth": "1999-10-10",
+      "gender": "Male",
+      "idCard": 145236987,
+      "phone": "0901234567",
+      "email": "m@m",
+      "address": "address",
       "customerType": {
         "id": 4,
         "name": "Silver"
@@ -144,13 +186,13 @@
       "name": "Phòng Superior Hướng Hồ",
       "area": 40.1,
       "cost": 800,
-      "maxPeople": "71",
+      "maxPeople": 7,
       "rentType": "Month",
       "standardRoom": "Normal",
-      "descriptionOtherConvenience": "No",
-      "poolArea": 11,
-      "numberFloor": 11,
-      "facilityFree": "No",
+      "descriptionOtherConvenience": "Có Hồ Bơi",
+      "poolArea": null,
+      "numberFloor": 2,
+      "facilityFree": "",
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg"
     },
     {
@@ -199,19 +241,49 @@
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
     },
     {
-      "id": 8,
+      "id": 7,
       "facilityType": "Villa",
-      "name": "Namename",
-      "area": "111",
+      "name": "Phòng Suite Hướng Biển",
+      "area": 85.8,
+      "cost": 1000,
+      "maxPeople": 5,
+      "rentType": "Year",
+      "standardRoom": "Vip",
+      "descriptionOtherConvenience": "Có TV",
+      "poolArea": 50,
+      "numberFloor": 5,
+      "facilityFree": "",
+      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Deluxe-double-bed-F-370x239.jpg"
+    },
+    {
+      "id": 8,
+      "facilityType": "Room",
+      "name": "Villa",
+      "area": "11",
       "cost": "11",
       "maxPeople": "11",
       "rentType": "Month",
-      "standardRoom": "Normal",
-      "descriptionOtherConvenience": "No",
+      "standardRoom": "lzdk",
+      "descriptionOtherConvenience": "skdbj",
       "poolArea": "11",
-      "numberFloor": "10",
-      "facilityFree": "No",
-      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-F-370x239.jpg"
+      "numberFloor": "12",
+      "facilityFree": "lksfdn",
+      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Deluxe-double-bed-F-370x239.jpg"
+    },
+    {
+      "id": 9,
+      "facilityType": "Villa",
+      "name": "N",
+      "area": "10",
+      "cost": "10",
+      "maxPeople": "10",
+      "rentType": "Day",
+      "standardRoom": "zldb",
+      "descriptionOtherConvenience": "sdk j",
+      "poolArea": "11",
+      "numberFloor": "11",
+      "facilityFree": "",
+      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Deluxe-double-bed-F-370x239.jpg"
     }
   ],
   "contract": [
@@ -230,7 +302,7 @@
     {
       "id": 2,
       "customer": {
-        "name": "Trần Thị Bình"
+        "name": "Trần Thị B"
       },
       "facility": {
         "name": "Biệt Thự Hướng Biển Có Hồ Bơi"
@@ -242,50 +314,74 @@
     {
       "id": 3,
       "customer": {
-        "name": "Trần Thị Bình"
+        "name": "Trần Thị B"
       },
       "facility": {
-        "name": "Phòng Suite Hướng Biển"
+        "name": "Biệt Thự Hướng Biển Có Hồ Bơi"
       },
-      "startDate": "2022-08-10",
-      "endDate": "2022-08-18",
-      "deposit": "15"
+      "startDate": "10/11/2021",
+      "endDate": "11/11/2021",
+      "deposit": 2000
     },
     {
       "id": 4,
       "customer": {
-        "name": "Ngọc C"
+        "name": "Trần Thị B"
       },
       "facility": {
-        "name": "Phòng Suite Hướng Biển"
+        "name": "Biệt Thự Hướng Biển Có Hồ Bơi"
       },
-      "startDate": "2022-08-03",
-      "endDate": "2022-08-11",
-      "deposit": "111111"
+      "startDate": "10/11/2021",
+      "endDate": "11/11/2021",
+      "deposit": 2000
     },
     {
       "id": 5,
       "customer": {
-        "name": "Name B C"
+        "name": "Trần Thị B"
       },
       "facility": {
-        "name": "Phòng Superior Hướng Hồ"
+        "name": "Biệt Thự Hướng Biển Có Hồ Bơi"
       },
-      "startDate": "2022-08-01",
-      "endDate": "2022-08-03",
-      "deposit": "1111111"
+      "startDate": "10/11/2021",
+      "endDate": "11/11/2021",
+      "deposit": 2000
     },
     {
       "id": 6,
       "customer": {
-        "name": "Ngọc C"
+        "name": "Trần Thị B"
       },
       "facility": {
-        "name": "Phòng Superior Hướng Hồ"
+        "name": "Biệt Thự Hướng Biển Có Hồ Bơi"
       },
-      "startDate": "2022-02-09",
-      "endDate": "2022-08-10",
-      "deposit": "11111111"
+      "startDate": "10/11/2021",
+      "endDate": "11/11/2021",
+      "deposit": 2000
+    },
+    {
+      "id": 7,
+      "customer": {
+        "name": "Trần Thị B"
+      },
+      "facility": {
+        "name": "Biệt Thự Hướng Biển Có Hồ Bơi"
+      },
+      "startDate": "10/11/2021",
+      "endDate": "11/11/2021",
+      "deposit": 2000
+    },
+    {
+      "id": 8,
+      "customer": {
+        "name": "Trần Thị B"
+      },
+      "facility": {
+        "name": "Biệt Thự Hướng Biển Có Hồ Bơi"
+      },
+      "startDate": "10/11/2021",
+      "endDate": "11/11/2021",
+      "deposit": 2000
     }
   ]
 }

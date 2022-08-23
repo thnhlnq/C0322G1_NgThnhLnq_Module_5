@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../model/customer';
 import {CustomerService} from '../customer.service';
-import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer-list',
@@ -16,14 +16,19 @@ export class CustomerListComponent implements OnInit {
 
   name: string;
 
-  constructor(private customerService: CustomerService) {
+  nameSearch: string;
+
+  page = 1;
+
+  constructor(private customerService: CustomerService,
+              private toast: ToastrService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAll();
   }
 
-  getAll() {
+  getAll(): void {
     this.customerService.getAll().subscribe(customers => {
       this.customers = customers;
     });
@@ -36,9 +41,17 @@ export class CustomerListComponent implements OnInit {
 
   deleteCustomer(id: number) {
     this.customerService.deleteCustomer(id).subscribe(() => {
+      this.toast.success('Delete Customer Success..', 'Notification');
       this.getAll();
     }, e => {
       console.log(e);
+    });
+  }
+
+  search() {
+    return this.customerService.searchCustomer(this.nameSearch).subscribe(listSearch => {
+      this.customers = listSearch;
+      this.page = 1;
     });
   }
 }
