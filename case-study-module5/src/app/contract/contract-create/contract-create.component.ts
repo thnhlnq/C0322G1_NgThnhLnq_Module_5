@@ -7,6 +7,7 @@ import {CustomerService} from '../../customer/customer.service';
 import {FacilityService} from '../../facility/facility.service';
 import {Facility} from '../../model/facility';
 import {ToastrService} from 'ngx-toastr';
+import {checkDate, checkEnd, checkStart} from '../../checkDateOfBirth';
 
 @Component({
   selector: 'app-contract-create',
@@ -16,12 +17,12 @@ import {ToastrService} from 'ngx-toastr';
 export class ContractCreateComponent implements OnInit {
   contractForm: FormGroup = new FormGroup({
     id: new FormControl(),
-    customer: new FormControl(),
-    facility: new FormControl(),
-    startDate: new FormControl(),
-    endDate: new FormControl(),
+    customer: new FormControl('', [Validators.required]),
+    facility: new FormControl('', [Validators.required]),
+    startDate: new FormControl('', [Validators.required, checkStart]),
+    endDate: new FormControl('', [Validators.required, checkEnd]),
     deposit: new FormControl('', [Validators.pattern('^[1-9]+\\d$')])
-  });
+  }, checkDate);
 
   customers: Customer[] = [];
 

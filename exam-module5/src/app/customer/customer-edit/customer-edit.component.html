@@ -1,7 +1,8 @@
+<!-- Contact Start -->
 <div class="container-xxl py-5">
   <div class="container" style="text-align: center">
     <div class=" row text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-      <h1>Create Customer</h1>
+      <h1>Edit Customer</h1>
     </div>
     <form [formGroup]="customerForm">
       <table style="display: inline-grid">
@@ -10,7 +11,7 @@
           <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Name <i>&nbsp;*</i></span>
-              <input type="text" class="form-control" placeholder="Enter Name Customer" formControlName="name"><br>
+              <input style="width: 100%" type="text" class="form-control" formControlName="name"><br>
             </div>
           </td>
         </tr>
@@ -26,7 +27,7 @@
           <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Date Of Birth <i>&nbsp;*</i></span>
-              <input type="date" class="form-control" placeholder="Enter Date Of Birth Customer" formControlName="dateOfBirth"><br>
+              <input type="date" class="form-control" formControlName="dateOfBirth"><br>
             </div>
           </td>
         </tr>
@@ -44,7 +45,6 @@
               <span class="input-group-text">Gender <i>&nbsp;*</i></span>
               <label style="width: 100%">
                 <select class="form-select" formControlName="gender">
-                  <option [defaultSelected]="customerForm" value="" disabled>-- Select Gender --</option>
                   <option>Male</option>
                   <option>Female</option>
                   <option>Other Gender</option>
@@ -64,7 +64,7 @@
           <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Id Card <i>&nbsp;*</i></span>
-              <input type="number" class="form-control" placeholder="Enter Id Card Customer" formControlName="idCard"><br>
+              <input type="text" class="form-control" formControlName="idCard"><br>
             </div>
           </td>
         </tr>
@@ -80,7 +80,7 @@
           <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Phone <i>&nbsp;*</i></span>
-              <input type="text" class="form-control" placeholder="Enter Phone Customer" formControlName="phone"><br>
+              <input type="text" class="form-control" formControlName="phone"><br>
             </div>
           </td>
         </tr>
@@ -96,7 +96,7 @@
           <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Email <i>&nbsp;*</i></span>
-              <input type="text" class="form-control" placeholder="Enter Email Customer" formControlName="email"><br>
+              <input type="text" class="form-control" formControlName="email"><br>
             </div>
           </td>
         </tr>
@@ -112,7 +112,7 @@
           <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Address <i>&nbsp;*</i></span>
-              <input type="text" class="form-control" placeholder="Enter Address Customer" formControlName="address"><br>
+              <input type="text" class="form-control" formControlName="address"><br>
             </div>
           </td>
         </tr>
@@ -127,9 +127,8 @@
           <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Customer Type <i>&nbsp;*</i></span>
-              <label style="width: 100%;">
+              <label style="width: 100%">
                 <select class="form-select" formControlName="customerType">
-                  <option [defaultSelected]="customerForm" value="" disabled>-- Select Customer Type --</option>
                   <option *ngFor="let item of customerTypes" [ngValue]="item.id">{{item.name}}</option>
                 </select>
               </label>
@@ -146,10 +145,9 @@
         <tr>
           <td style="padding: 20px">
             <div class="vstack" style="display: inline">
-              <button style="border: none; background: none" class="m-5" [disabled]="!customerForm.valid" (click)="submit()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle text-success" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              <button style="border: none; background: none" class="m-5" [disabled]="!customerForm.valid" (click)="editCustomer(id)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil text-success" viewBox="0 0 16 16">
+                  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                 </svg>
               </button>
               <a class="m-5" routerLink="/customer/list">
@@ -165,3 +163,4 @@
     </form>
   </div>
 </div>
+<!-- Contact End -->

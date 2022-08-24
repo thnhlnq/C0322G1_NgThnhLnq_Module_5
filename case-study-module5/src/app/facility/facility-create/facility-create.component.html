@@ -13,6 +13,7 @@
               <span class="input-group-text">Facility Type <i>&nbsp;*</i></span>
               <label style="width: 100%">
                 <select class="form-select" formControlName="facilityType" (change)="selectType($event.target.value)">
+                  <option [defaultSelected]="facilitiesForm" value="" disabled>-- Select Facility Type --</option>
                   <option value="Villa">Villa</option>
                   <option value="House">House</option>
                   <option value="Room">Room</option>
@@ -97,6 +98,7 @@
               <span class="input-group-text">Rent Type <i>&nbsp;*</i></span>
               <label style="width: 100%">
                 <select class="form-select" formControlName="rentType">
+                  <option [defaultSelected]="facilitiesForm" value="" disabled>-- Select Rent Type --</option>
                   <option>Year</option>
                   <option>Month</option>
                   <option>Day</option>

@@ -3,7 +3,7 @@
     <div class=" row text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
       <h1>Create Contract</h1>
     </div>
-    <form [formGroup]="contractForm" (ngSubmit)="submit()">
+    <form [formGroup]="contractForm">
       <table style="display: inline-grid">
         <tbody>
         <tr>
@@ -12,6 +12,7 @@
               <span class="input-group-text">Customer</span>
               <label style="width: 100%">
                 <select class="form-select" formControlName="customer">
+                  <option [defaultSelected]="contractForm" value="">-- Select Customer --</option>
                   <option *ngFor="let item of customers" [ngValue]="item.name">{{item.name}}</option>
                 </select>
               </label>
@@ -21,14 +22,27 @@
 
         <tr>
           <td>
+            <p *ngIf="contractForm.controls.customer.hasError('required') && contractForm.controls.customer.touched">Customer Can't Be Blank</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Facility</span>
               <label style="width: 100%">
                 <select class="form-select" formControlName="facility">
+                  <option [defaultSelected]="contractForm" value="">-- Select Facility --</option>
                   <option *ngFor="let item of facilities" [ngValue]="item.name">{{item.name}}</option>
                 </select>
               </label>
             </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p *ngIf="contractForm.controls.facility.hasError('required') && contractForm.controls.facility.touched">Facility Can't Be Blank</p>
           </td>
         </tr>
 
@@ -43,6 +57,14 @@
 
         <tr>
           <td>
+            <p *ngIf="contractForm.controls.startDate.hasError('required') && contractForm.controls.startDate.touched">Start Date Can't Be Blank</p>
+            <p *ngIf="contractForm.controls.startDate.hasError('checkStart') && contractForm.controls.startDate.touched">Start Date > Current Date</p>
+            <p *ngIf="contractForm.hasError('checkDate') && contractForm.touched">Start Date > End Date</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">End Date</span>
               <input type="date" class="form-control" formControlName="endDate">
@@ -52,9 +74,17 @@
 
         <tr>
           <td>
+            <p *ngIf="contractForm.controls.endDate.hasError('required') && contractForm.controls.endDate.touched">End Date Can't Be Blank</p>
+            <p *ngIf="contractForm.controls.endDate.hasError('checkEnd') && contractForm.controls.endDate.touched">End Date > Current Date</p>
+            <p *ngIf="contractForm.hasError('checkDate') && contractForm.touched">End Date < Start Date</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <div class="input-group flex-nowrap">
               <span class="input-group-text">Deposit</span>
-              <input type="text" class="form-control" formControlName="deposit">
+              <input type="text" class="form-control" placeholder="Enter Deposit" formControlName="deposit">
             </div>
           </td>
         </tr>
@@ -68,7 +98,7 @@
         <tr>
           <td style="padding: 20px">
             <div class="vstack" style="display: inline">
-              <button style="border: none; background: none" class="m-5">
+              <button style="border: none; background: none" class="m-5" (click)="submit()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle text-success" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
