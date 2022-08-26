@@ -15,7 +15,7 @@ import {CustomerType} from '../customer-type';
 export class CustomerCreateComponent implements OnInit {
 
   customerForm: FormGroup = new FormGroup({
-    id: new FormControl(Math.floor(Math.random()) * 100),
+    id: new FormControl(),
     name: new FormControl('', [Validators.required, Validators.pattern('^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$')]),
     dateOfBirth: new FormControl('', [Validators.required, checkDateOfBirth]),
     gender: new FormControl('', [Validators.required]),
@@ -48,7 +48,7 @@ export class CustomerCreateComponent implements OnInit {
       this.customerService.saveCustomer(customer).subscribe(() => {
         this.customerForm.reset();
         this.toast.success('Added Customer Success..', 'Notification');
-        this.router.navigate(['/customer/list']);
+        this.router.navigate(['/']);
       }, e => {
         console.log(e);
       });

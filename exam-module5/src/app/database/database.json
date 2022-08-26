@@ -24,7 +24,7 @@
   "customer": [
     {
       "id": 1,
-      "name": "Nguyễn Văn A",
+      "name": "Nguyễn Trần A",
       "dateOfBirth": "1999-03-02",
       "gender": "Male",
       "idCard": 124563987,
@@ -32,8 +32,8 @@
       "email": "vana@gmail.com",
       "address": "Đà Nẵng",
       "customerType": {
-        "id": 3,
-        "name": "Gold"
+        "id": 5,
+        "name": "Member"
       }
     },
     {
@@ -79,28 +79,28 @@
       }
     },
     {
-      "id": 7,
-      "name": "Name B C",
-      "dateOfBirth": "1999-02-17",
-      "gender": "Male",
-      "idCard": 321546879,
-      "phone": "0901237896",
-      "email": "m@mpoiuy",
-      "address": "address",
-      "customerType": {
-        "id": 3,
-        "name": "Gold"
-      }
-    },
-    {
       "id": 8,
-      "name": "N",
+      "name": "Name",
       "dateOfBirth": "1999-10-10",
       "gender": "Female",
       "idCard": 123456789,
       "phone": "0901234567",
       "email": "m@M",
       "address": "adksljc",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Name N",
+      "dateOfBirth": "1999-10-10",
+      "gender": "Male",
+      "idCard": 123456789,
+      "phone": "0901234567",
+      "email": "n@n",
+      "address": "add",
       "customerType": {
         "id": 4,
         "name": "Silver"

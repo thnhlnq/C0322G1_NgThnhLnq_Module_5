@@ -63,7 +63,7 @@ export class CustomerEditComponent implements OnInit {
         name: customerType.name
       };
       this.customerService.editCustomer(id, customer).subscribe(() => {
-        this.router.navigate(['/customer/list']);
+        this.router.navigate(['/']);
         this.toast.success('Edited Customer Success..', 'Notification..');
       }, e => {
         console.log(e);
